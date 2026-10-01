@@ -99,7 +99,8 @@ export class SalesService {
         totalAmount: fromCents(totalCents),
         createdBy: staffId,
       });
-      const savedSale = await queryRunner.manager.save(sale);
+      await queryRunner.manager.save(sale);
+      const savedSale = sale;
 
       await queryRunner.manager.insert(
         SaleItem,

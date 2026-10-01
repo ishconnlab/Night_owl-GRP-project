@@ -40,9 +40,6 @@ export class Sale {
   @Column({ name: 'created_by', type: 'uuid', nullable: true })
   createdBy: string | null;
 
-  @Column({ name: 'created_at', type: 'timestamptz', nullable: true, default: () => 'CURRENT_TIMESTAMP' })
-  createdAt: Date | null;
-
   @OneToMany('SaleItem', (item: SaleItem) => item.sale)
   items: SaleItem[];
 }
