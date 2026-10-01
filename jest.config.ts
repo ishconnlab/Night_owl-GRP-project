@@ -15,9 +15,22 @@ const config: Config = {
   rootDir: '.',
   testRegex: '.*\\.spec\\.ts$',
   transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
+    '^.+\\.(t|j)s$': [
+      'ts-jest',
+      {
+        useESM: true,
+        tsconfig: {
+          module: 'esnext',
+          moduleResolution: 'bundler',
+        },
+      },
+    ],
   },
+  extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: pathsToModuleNameMapper(paths, { prefix: '<rootDir>/' }),
+  transformIgnorePatterns: [
+    'node_modules/(?!(@nestjs|class-validator|class-transformer|rxjs|typeorm|pg)/)',
+  ],
   collectCoverageFrom: [
     'src/**/*.(t|j)s',
     'libs/**/*.(t|j)s',

@@ -17,6 +17,9 @@
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,
-    "strictPropertyInitialization": false
-  }
+    "strictPropertyInitialization": false,
+    "rootDir": "."
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "dist", "frontend"]
 }
