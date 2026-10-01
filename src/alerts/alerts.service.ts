@@ -102,7 +102,7 @@ export class AlertsService {
       .createQueryBuilder('a')
       .leftJoinAndSelect('a.medicine', 'm')
       .orderBy(
-        `CASE a.severity WHEN 'critical' THEN 0 WHEN 'warning' THEN 1 ELSE 2 END`,
+        `CASE "a"."severity" WHEN 'critical' THEN 0 WHEN 'warning' THEN 1 ELSE 2 END`,
         'ASC',
       )
       .addOrderBy('a.created_at', 'DESC')

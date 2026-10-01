@@ -66,6 +66,6 @@ export class ReservationRequest {
   @Column({ name: 'decided_at', type: 'timestamptz', nullable: true })
   decidedAt: Date | null;
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamptz' })
+  @Column({ name: 'created_at', type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: Date;
 }
